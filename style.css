@@ -13,8 +13,18 @@
     box-sizing: border-box;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: var(--cor-fundo);
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* É isso que faz a imagem não rolar junto com a página */
+    
     color: var(--cor-texto);
     font-family: var(--fonte-principal);
     line-height: 1.6;
@@ -75,9 +85,24 @@ header h1 {
 }
 
 main {
-    max-width: 1100px; 
-    margin: 0 auto; 
-    padding: 40px 20px;
+    background-color: rgba(17, 17, 17, 0.85); 
+    max-width: 1100px;
+    margin: 40px auto; 
+    padding: 40px;
+    border-radius: 12px; 
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.9); 
+    backdrop-filter: blur(2px);
+}
+
+.escondido {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.mostrar {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 section {
