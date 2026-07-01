@@ -39,37 +39,46 @@ img {
     border-radius: 6px; 
 }
 
-/* =========================================
-   4. CABEÇALHO E NAVEGAÇÃO
-   ========================================= */
 header {
-    background: linear-gradient(to bottom, #000000, var(--cor-header)); /* Gradiente suave no fundo */
+    background: linear-gradient(to bottom, #000000, var(--cor-header));
     text-align: center;
-    padding-bottom: 20px;
-    border-bottom: 2px solid rgba(255, 204, 0, 0.3); /* Borda mais delicada */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8); /* Sombra para dar profundidade */
+    /* Removemos o padding-bottom daqui para o menu colar embaixo */
+    border-bottom: 2px solid rgba(255, 204, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    position: relative; /* Define o cabeçalho como a caixa base */
+    overflow: hidden; /* A 'tesoura' mágica que não deixa o banner vazar pra baixo */
 }
 
-/* Ajuste da imagem de capa para não cortar no Desktop */
 .banner {
     width: 100%;
-    height: auto; /* Permite que a imagem cresça naturalmente */
-    max-height: 450px; /* Limite bem maior para o desktop */
+    height: auto;
+    max-height: 450px;
     object-fit: cover;
-    object-position: top; /* Garante que o topo da imagem seja sempre priorizado */
+    object-position: top;
+    position: relative;
+    z-index: 1; /* O banner fica na camada do fundo (camada 1) */
 }
 
 header h1 {
-    font-family: var(--fonte-logo); 
+    font-family: var(--fonte-logo);
     color: var(--cor-destaque);
     margin: 25px 0;
-    font-size: 4rem; 
+    font-size: 4rem;
     text-transform: uppercase;
     font-weight: 700;
-    text-shadow: 0 0 15px rgba(255, 204, 0, 0.4); 
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+    position: relative;
+    z-index: 2; /* O título fica na frente do banner (camada 2) */
 }
 
-/* Ajustes no Menu */
+.menu-principal {
+    position: relative;
+    z-index: 2; /* O menu também fica na frente (camada 2) */
+    background-color: var(--cor-header); /* Cria uma parede sólida para esconder o banner */
+    padding: 20px 0;
+    box-shadow: 0 -30px 40px var(--cor-header); /* Cria um esfumaçado escuro e elegante para cima, mesclando com o banner! */
+}
+
 .menu-principal ul {
     list-style: none; 
     display: flex; 
